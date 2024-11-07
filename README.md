@@ -1,47 +1,64 @@
 # DATE:
-# EX:10- Implementation of Multivariate Linear Regression
+# EX:10-Implementation of Multivariate Linear Regression
 ## Aim
 To write a python program to implement multivariate linear regression and predict the output.
 ## Equipment’s required:
 1.	Hardware – PCs
 2.	Anaconda – Python 3.7 Installation / Moodle-Code Runner
 ## Algorithm:
-### Step1:
-Start the program.
+### Step1
+Import pandas module as pd
 
-### Step2:
-Write a program to perform multivariate regression in anaconda navigator.
+### Step2
+From sklearn module import linear_model.
 
-### Step3:
-Run the program.
+### Step3
+Using pd.read_csv function read the cars.csv file
 
-### Step4:
-Print the output.
+### Step4
+Make a list of the independent values(Weight&Volume) and call this variable x and put the dependent values(CO2) in a variable called y
 
-### Step5:
-End the program.
+### Step5
+From the sklearn module use the LinearRegression() method to create a linear regression object.This object has a method called fit() that takes the independent and dependent values as parameters and fills the regression object with data that describes the relationship.
+
+### Step6
+Use .coef_ and .intercept_ function to find the coefficient and intercept
+
+### Step7
+Predict the Linear Regression using regr.predict() method and print it
+
+### Step8
+End of program
 
 ## Program:
 ```
-#Program to find Univariate Linear Regression
-#Developed by:KAVINRAJ.S
-#Register number:212223100019
-
+##Program to implement multivariate linear regression
+##Developed by:KAVINRAJ.S
+##reference no:212223100019
 import pandas as pd
 from sklearn import linear_model
-data=pd.read_csv("car.csv")
-x=data[['Weight','Volume']]
-y=data[['CO2']]
+df=pd.read_csv("cars.csv")
+X=df[['Weight', 'Volume']]
+y=df['CO2']
 regr=linear_model.LinearRegression()
-regr.fit(x,y)
-print('Coefficients:',regr.coef_)
-print('Intercept:',regr.intercept_)
-predictCO2=regr.predict([[3300,1300]])
-print('predicted CO2 for the corresponding weight and volume',predictCO2)
+regr.fit(X,y)
+print('Coefficients',regr.coef_)
+print('Intercept',regr.intercept_)
+predictedCO2=regr.predict([[3300,1300]])
+print('Predicted CO2 emission based on weight and volume:',predictedCO2)
+
+
+
 ```
 ## Output:
 
-![alt text](multi.png)
 
-## Result:
+![Screenshot (74)](https://user-images.githubusercontent.com/120620842/214812526-a0179012-e8c3-4203-9ebf-01ff015c209f.png)
+
+
+### Insert your output
+
+<br>
+
+## Result
 Thus the multivariate linear regression is implemented and predicted the output using python program.
